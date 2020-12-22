@@ -4,18 +4,32 @@
     scope 이슈와 관계 없이 편의상 사용되었습니다.
 */
 
+// 해당 액션들이 특정 카운터를 조작할 수 있게 하려고
+// index 값을 액션객체에 포함해야한다.
+
 import * as types from './ActionTypes';
 
-export const increment = () => ({
-  type: types.INCREMENT
+export const create = (color) => ({
+  type: types.CREATE,
+  color
 });
 
-export const decrement = () => ({
-  type: types.DECREMENT
+export const remove = () => ({
+  type: types.REMOVE
 });
 
-// 다른 액션 생성자들과 달리, 파라미터를 갖고있습니다
-export const setColor = (color) => ({
+export const increment = (index) => ({
+  type: types.INCREMENT,
+  index
+});
+
+export const decrement = (index) => ({
+  type: types.DECREMENT,
+  index
+});
+
+export const setColor = ({index,color}) => ({
   type: types.SET_COLOR,
+  index,
   color
 });
